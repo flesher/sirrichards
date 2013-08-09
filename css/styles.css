@@ -136,7 +136,7 @@ body {
 }
 
 #myChart {
-  position: relative;
+  position: absolute;
   left: 50%;
   margin-left: -200px;
 }
