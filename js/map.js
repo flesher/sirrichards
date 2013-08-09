@@ -1,26 +1,40 @@
 var map;
 var pos;
+var geocoder;
+var marker;
 
 function initialize() {
   var mapOptions = {
-    zoom: 14,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   map = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
+      
+  geocoder = new google.maps.Geocoder();
 
   // Try HTML5 geolocation
   if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
-      pos = new google.maps.LatLng(position.coords.latitude,
-                                       position.coords.longitude);
-
-      var infowindow = new google.maps.InfoWindow({
-        map: map,
-        position: pos,
-        content: 'Location found'
+      pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+      
+      var infowindow = new google.maps.InfoWindow();
+      var latlng = new google.maps.LatLng(pos.lb, pos.mb);
+      geocoder.geocode({'latLng': latlng}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          if (results[1]) {
+            map.setZoom(14);
+            marker = new google.maps.Marker({
+                position: latlng,
+                map: map
+            });
+            infowindow.setContent(results[1].formatted_address);
+            infowindow.open(map, marker);
+          }
+        } else {
+          alert("Geocoder failed due to: " + status);
+        }
       });
-
+      
       map.setCenter(pos);
     }, function() {
       handleNoGeolocation(true);
