@@ -43,6 +43,8 @@ function waitKickoff(){
       song.stop();
   }
 
+  $('#waiting').height($(window).height());
+
   function countdown(element) {
     interval = setInterval(function() {
       var el = document.getElementById(element);
@@ -62,7 +64,7 @@ function waitKickoff(){
       // } else {
       //   var minute_text = '';
       // }
-      el.innerHTML = minutes + ' : ' + seconds + '<br/>remaining';
+      el.innerHTML = minutes + ':' + seconds;
       seconds--;
       value -= 1;
       console.log(value);
@@ -78,7 +80,7 @@ function waitKickoff(){
     var data = [
       {
         value: value,
-        color: 'purple'
+        color: '#0091d1'
       },
 
       {

@@ -128,15 +128,42 @@ body {
 
 /* waiting page */
 
+#waiting {
+  height: 100%;
+}
+
+#waiting h2 {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 45pt;
+  width: 640px;
+  text-align: center;
+}
+
+#waiting p {
+  color: #666;
+  position: absolute;
+  bottom: 10%;
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+}
+
 #time-left {
+  color: #7e3f98;
   text-align: center;
   position: absolute;
-  top: 40%;
+  top: 50%;
+  font-size: 8em;
+  margin-top: -84px;
   width: 100%;
+  z-index: 5;
 }
 
 #myChart {
   position: absolute;
   left: 50%;
+  top: 50%;
+  margin-top: -200px;
   margin-left: -200px;
 }
