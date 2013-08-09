@@ -64,15 +64,24 @@ body {
   padding: 5px;
   border: 1px solid #999;
 }
-#address {
-  margin: 30px auto;
-  display: none;
-}
 #doubleTap {
   font-size: 42px;
   opacity: 0.7;
   margin-top: 20px;
+}
+#deliverHere {
+  opacity: 1;
   margin-bottom: 150px;
+  margin-top: -30px;
+  text-decoration: underline;
+  font-size: 30px;
+}
+#deliverHere a {
+  color: #ffffff;
+  margin-left: 380px;
+}
+.opacity {
+  opacity: 0 !important;
 }
 #mapCover{
   position: absolute;
