@@ -10,6 +10,7 @@ function waitKickoff(){
       seconds = 0;
 
   countdown('time-left');
+  echonest();
 
   function countdown(element) {
     interval = setInterval(function() {
@@ -35,4 +36,12 @@ function waitKickoff(){
       seconds--;
     }, 1000);
   } 
+
+  function echonest() {
+    var call = "http://developer.echonest.com/api/v4/playlist/basic?api_key=NCZVJBPPSYEF0XPKZ&genre=sexy&format=json&results=20&type=genre-radio"
+
+    $.get(call, function(data){
+      console.log(data);
+    });
+  }
 }    
