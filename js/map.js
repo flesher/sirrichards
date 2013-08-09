@@ -5,7 +5,6 @@ var marker;
 
 function initialize() {
   var mapOptions = {
-    zoom: 14,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   map = new google.maps.Map(document.getElementById('map-canvas'),
@@ -23,7 +22,7 @@ function initialize() {
       geocoder.geocode({'latLng': latlng}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
           if (results[1]) {
-            map.setZoom(11);
+            map.setZoom(14);
             marker = new google.maps.Marker({
                 position: latlng,
                 map: map
