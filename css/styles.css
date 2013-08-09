@@ -19,23 +19,40 @@ body {
 }
 
 /* location page */
+#location {
+  text-align: center;
+  margin: 0 auto;
+}
 #location h1 {
   text-align: center;
-  margin-top: 0;
+  margin: 0;
   font-size: 94px;
   text-transform: uppercase;
   font-weight: normal;
 }
+#location h2 {
+  font-size: 42px;
+  font-weight: normal;
+  margin-top: -20px;
+  margin-bottom: 100px;
+}
 #location label,
 #location input {
   display: block;
+  margin:0 auto;
 }
 #location span {
   margin: 30px 0;
 }
 #map-canvas, #map_canvas {
-  height: 400px;
-  width: 300px;
+  height: 500px;
+  width: 500px;
+  color: #000000;
+}
+
+#map-canvas {
+  margin: 0 auto;
+  background: #000000;
 }
 #location #panel {
   position: absolute;
@@ -48,10 +65,38 @@ body {
   border: 1px solid #999;
 }
 #address {
-  margin: 30px 0;
+  margin: 30px auto;
+  display: none;
+}
+#doubleTap {
+  font-size: 42px;
+  opacity: 0.7;
+  margin-top: 20px;
+  margin-bottom: 150px;
+}
+#mapCover{
+  position: absolute;
+  z-index: 3;
+  left: 70px;
+}
+.hide {
+  display: none;
+}
+#pin {
+  height: 50px;
+  margin-bottom: -10px;
+  margin-right: 30px;
+}
+#arrow {
+  height: 50px;
+  margin-left: 50px;
+  margin-bottom: -10px;
 }
 #nextButton {
   padding-bottom: 30px;
+  color: #666666;
+  text-decoration: none;
+  font-size: 40px;
 }
 
 /* end of location page */

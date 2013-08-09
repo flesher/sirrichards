@@ -10,7 +10,7 @@ function initialize() {
       stylers: [
         { "invert_lightness": true },
         { "saturation": 23 },
-        { "hue": "#9900ff" }
+        { "hue": "#7e3f98" }
       ]
     }
   ];

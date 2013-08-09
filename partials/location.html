@@ -1,10 +1,14 @@
 <section id="location">
   <h1>Don&#39;t sweat it</h1>
+  <h2>We&#39;ve got you covered</h2>
+  <img id="mapCover" src="img/mapCover.png" onclick="showMap();"/>
   <div id="map-canvas"></div>
-  <p>OR</p>
+  <p id="doubleTap">Double tap to deliver here</p>
   <div id="address">
-    <label for="street">Street and/or Apt #:</label><input id="street" type="text" />
+    <label for="street">Street and/or Apt:</label><input id="street" type="text" />
     <label for="zip">Zipcode:</label><input id="zip" type="text" />
   </div>
-  <a id="nextButton" href="#/time">NEXT</a>
+  <a id="nextButton" href="#/time"><img id="pin" src="img/pinkPin.png"/>
+  <span>Or deliver to your destination</span>
+  <img id="arrow" src="img/arrow.png"/></a>
 </section>
