@@ -1,12 +1,31 @@
+@font-face
+{
+  font-family: pakt;
+  src: url('../fonts/Pakt/Pakt-Black.otf')
+}
+
 html,
 body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: "TrumpGothicEast-Regular", sans-serif;
+  font-family: "pakt", sans-serif;
+}
+#the-view {
+  height: 1136px;
+  width: 640px;
+  background-color: #000000;
+  color: #ffffff;
 }
 
 /* location page */
+#location h1 {
+  text-align: center;
+  margin-top: 0;
+  font-size: 94px;
+  text-transform: uppercase;
+  font-weight: normal;
+}
 #location label,
 #location input {
   display: block;

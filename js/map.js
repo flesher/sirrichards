@@ -2,13 +2,37 @@ var map;
 var pos;
 var geocoder;
 var marker;
+var MY_MAPTYPE_ID = 'custom_style';
 
 function initialize() {
+  var featureOpts = [
+    {
+      stylers: [
+        { "invert_lightness": true },
+        { "saturation": 23 },
+        { "hue": "#9900ff" }
+      ]
+    }
+  ];
+  
   var mapOptions = {
-    mapTypeId: google.maps.MapTypeId.ROADMAP
+    zoom: 15,
+    center: pos,
+    mapTypeControlOptions: {
+      mapTypeIds: [google.maps.MapTypeId.ROADMAP, MY_MAPTYPE_ID]
+    },
+    mapTypeId: MY_MAPTYPE_ID,
+    scrollwheel: false
   };
   map = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
+
+  var styledMapOptions = {
+    name: 'Custom Style'
+  };
+
+  var customMapType = new google.maps.StyledMapType(featureOpts, styledMapOptions);
+  map.mapTypes.set(MY_MAPTYPE_ID, customMapType);
       
   geocoder = new google.maps.Geocoder();
 
