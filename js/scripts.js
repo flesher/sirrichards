@@ -8,14 +8,18 @@ function waitKickoff(){
   //countdown
   var minutes = 23,
       seconds = 0,
+      value = 1380,
       music;
 
   var song = new Howl({
       urls: ['marvin.mp3']
     });
 
+  var ctx = document.getElementById("myChart").getContext("2d");
+
   countdown('time-left');
   play();
+  chart();
   // echonest();
 
   function play() {
@@ -40,22 +44,51 @@ function waitKickoff(){
           seconds = 60;
         }
       }
-      if(minutes > 0) {
-        var minute_text = minutes + (minutes > 1 ? ' minutes' : ' minute');
-      } else {
-        var minute_text = '';
-      }
-      var second_text = seconds > 1 ? 'seconds' : 'second';
-      el.innerHTML = minute_text + ' ' + seconds + ' ' + second_text + ' remaining';
+      // if(minutes > 0) {
+      //   var minute_text = minutes + (minutes > 1 ? ' minutes' : ' minute');
+      // } else {
+      //   var minute_text = '';
+      // }
+      el.innerHTML = minutes + ' : ' + seconds + '<br/>remaining';
       seconds--;
+      value -= 1;
+      console.log(value);
+      ctx.clearRect(0,0,400,400);
+      chart();
     }, 1000);
   } 
 
-  function echonest() {
-    var call = "http://developer.echonest.com/api/v4/playlist/basic?api_key=NCZVJBPPSYEF0XPKZ&genre=sexy&format=json&results=20&bucket=id:rdio-US&bucket=tracks&type=genre-radio";
+  function chart() {
 
-    $.get(call, function(data){
-      console.log(data);
-    });
+    
+    
+    var data = [
+      {
+        value: value,
+        color: 'purple'
+      },
+
+      {
+        value: 1380-value,
+        color: 'black'
+      }
+    ];
+
+    var options = {
+      percentageInnerCutout : 75,
+      animation : false,
+      segmentShowStroke : false
+    }
+
+    var myNewChart = new Chart(ctx).Doughnut(data, options);
+
   }
+
+  // function echonest() {
+  //   var call = "http://developer.echonest.com/api/v4/playlist/basic?api_key=NCZVJBPPSYEF0XPKZ&genre=sexy&format=json&results=20&bucket=id:rdio-US&bucket=tracks&type=genre-radio";
+
+  //   $.get(call, function(data){
+  //     console.log(data);
+  //   });
+  // }
 }    
