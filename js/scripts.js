@@ -7,17 +7,32 @@
 function waitKickoff(){
   //countdown
   var minutes = 23,
-      seconds = 0;
+      seconds = 0,
+      music;
+
+  var song = new Howl({
+      urls: ['marvin.mp3']
+    });
 
   countdown('time-left');
-  echonest();
+  play();
+  // echonest();
+
+  function play() {
+      song.play();
+  }
+
+  function stop() {
+      song.stop();
+  }
 
   function countdown(element) {
     interval = setInterval(function() {
       var el = document.getElementById(element);
       if(seconds == 0) {
         if(minutes == 0) {
-          el.innerHTML = "countdown's over!";                    
+          el.innerHTML = "your rubber will be here momentarily";
+          music.stop();                   
           clearInterval(interval);
           return;
         } else {
@@ -32,13 +47,12 @@ function waitKickoff(){
       }
       var second_text = seconds > 1 ? 'seconds' : 'second';
       el.innerHTML = minute_text + ' ' + seconds + ' ' + second_text + ' remaining';
-      console.log(minute_text + ' ' + seconds + ' ' + second_text + ' remaining');
       seconds--;
     }, 1000);
   } 
 
   function echonest() {
-    var call = "http://developer.echonest.com/api/v4/playlist/basic?api_key=NCZVJBPPSYEF0XPKZ&genre=sexy&format=json&results=20&type=genre-radio"
+    var call = "http://developer.echonest.com/api/v4/playlist/basic?api_key=NCZVJBPPSYEF0XPKZ&genre=sexy&format=json&results=20&bucket=id:rdio-US&bucket=tracks&type=genre-radio";
 
     $.get(call, function(data){
       console.log(data);
