@@ -18,14 +18,14 @@
   var app_router = new AppRouter;
 
   app_router.on('route:waitingMusic', function() {
-    $.get("partials/waitingmusic.html", function(data){
+    $.get("partials/waiting-music.html", function(data){
       console.log(data);
       $('#the-view').html(data);     
     });
   });
 
   app_router.on('route:deliveryTime', function() {
-    $.get("partials/deliverytime.html", function(data){
+    $.get("partials/delivery-time.html", function(data){
       console.log(data);
       $('#the-view').html(data);     
     });
