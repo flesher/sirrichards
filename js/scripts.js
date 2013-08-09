@@ -1,4 +1,17 @@
 /**************************
+ * Location
+ *
+ *
+/**************************/
+
+function showMap(){
+  document.getElementById("mapCover").className = "hide";
+  document.getElementById("deliverHere").className = "";
+};
+
+
+
+/**************************
  * The Wait
  *
  *
